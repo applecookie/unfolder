@@ -25,12 +25,26 @@ $(document).ready(function() {
         $('.carousel__text').removeClass('__active').eq(event.page.index).addClass('__active');
     });
 
-    $('._more').click(function() { // ловим клик по ссылке с классом go_to
-        var scroll_el = $(this).attr('href'); // возьмем содержимое атрибута href, должен быть селектором, т.е. например начинаться с # или .
-        if ($(scroll_el).length != 0) { // проверим существование элемента чтобы избежать ошибки
-            $('html, body').animate({ scrollTop: $(scroll_el).offset().top }, 500); // анимируем скроолинг к элементу scroll_el
-        }
+    var $more = $('._more');
+    var $window = $(window);
 
-        return false; // выключаем стандартное действие
-    });
+    if ($window.scrollTop() > 0) {
+        $more.remove();
+    } else {
+        $more.click(function() { // ловим клик по ссылке с классом go_to
+            var scroll_el = $(this).attr('href'); // возьмем содержимое атрибута href, должен быть селектором, т.е. например начинаться с # или .
+            var $scroll_el = $(scroll_el);
+
+            if ($scroll_el.length !== 0) { // проверим существование элемента чтобы избежать ошибки
+                $('html, body').animate({ scrollTop: $scroll_el.offset().top }, 500); // анимируем скроолинг к элементу scroll_el
+                $more.remove();
+            }
+
+            return false; // выключаем стандартное действие
+        });
+
+        $window.on('scroll', function() {
+            $more.remove();
+        });
+    }
 });
