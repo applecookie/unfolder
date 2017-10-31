@@ -31,16 +31,16 @@ $(document).ready(function() {
     if ($window.scrollTop() > 0) {
         $more.remove();
     } else {
-        $more.click(function() { // ловим клик по ссылке с классом go_to
-            var scroll_el = $(this).attr('href'); // возьмем содержимое атрибута href, должен быть селектором, т.е. например начинаться с # или .
+        $more.click(function() {
+            var scroll_el = $(this).attr('href');
             var $scroll_el = $(scroll_el);
 
-            if ($scroll_el.length !== 0) { // проверим существование элемента чтобы избежать ошибки
-                $('html, body').animate({ scrollTop: $scroll_el.offset().top }, 500); // анимируем скроолинг к элементу scroll_el
+            if ($scroll_el.length !== 0) {
+                $('html, body').animate({ scrollTop: $scroll_el.offset().top }, 500);
                 $more.remove();
             }
 
-            return false; // выключаем стандартное действие
+            return false;
         });
 
         $window.on('scroll', function() {
