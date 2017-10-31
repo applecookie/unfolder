@@ -27,6 +27,15 @@ $(document).ready(function() {
     });
 
 
+    $('.nets__link').on('click', function(e) {
+        e.preventDefault();
+        var link = $(this).attr('href');
+
+        setTimeout(function() {
+            location.href = link;
+        }, 500);
+    });
+
     // $('.fab._share').on('click', function(e) {
     //     e.preventDefault();
     //
