@@ -226,13 +226,22 @@ svg {
   -webkit-box-pack: center;
           justify-content: center;
   -webkit-box-align: center;
-          align-items: center;
-  margin-top: 1.4em; }
+          align-items: center; }
   .nets__link {
-    width: 44px;
-    height: 44px;
-    margin: 0 20px; }
+    position: relative;
+    overflow: hidden;
+    width: 86px;
+    height: 86px;
+    text-decoration: none;
+    border-radius: 100%; }
   .nets svg {
+    width: 48px;
+    height: 48px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
     fill: #fff; }
   @media all and (max-width: 1024px) {
     .nets__link {
