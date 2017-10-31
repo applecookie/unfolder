@@ -126,7 +126,10 @@ svg {
     margin-top: -165px; }
   .carousel__text {
     font-size: 18px;
-    font-weight: 500; }
+    font-weight: 500;
+    display: none; }
+    .carousel__text.__active {
+      display: block; }
   @media all and (max-width: 1024px) {
     .carousel {
       background-color: #212121; }
