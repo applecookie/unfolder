@@ -1,0 +1,35 @@
+.header
+  padding: 45px 55px 0
+  display: flex
+  justify-content: space-between
+  align-items: center
+  background-color: $c-bg-primary
+  &__brand
+    display: flex
+    align-items: center
+  &__logo
+    width: 56px
+    height: 56px
+  &__brand-text
+    margin-left: 20px
+    font-size: 36px
+    font-weight: 500
+    color: #fff
+  &__lang
+    padding: 10px
+    font-size: 30px
+    font-weight: 500
+    text-transform: uppercase
+    color: rgba(#fff,.95)
+    text-decoration: none
+    border-radius: 100%
+    &:hover, &:active
+      color: $c-primary
+
+  @media all and (max-width: 1024px)
+    padding: 10px
+    justify-content: flex-end
+    &__brand
+      display: none
+    &__lang
+      font-size: 16px
