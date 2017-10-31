@@ -1,3 +1,32 @@
+.ripple-effect {
+  position: absolute;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  background: #fff;
+  -webkit-animation: ripple-animation 2s;
+          animation: ripple-animation 2s; }
+
+@-webkit-keyframes ripple-animation {
+  from {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: 0.4; }
+  to {
+    -webkit-transform: scale(100);
+            transform: scale(100);
+    opacity: 0; } }
+
+@keyframes ripple-animation {
+  from {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: 0.4; }
+  to {
+    -webkit-transform: scale(100);
+            transform: scale(100);
+    opacity: 0; } }
+
 * {
   margin: 0;
   padding: 0; }
@@ -147,16 +176,23 @@ svg {
   border-radius: 2px; }
 
 .owl-prev, .owl-next {
+  overflow: hidden;
   position: absolute;
   top: 50%;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
   width: 56px;
   height: 56px;
-  padding: 16px;
   background-color: rgba(0, 0, 0, 0.33);
   border-radius: 100%; }
   .owl-prev svg, .owl-next svg {
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
     fill: #fff; }
 
 .owl-prev {
@@ -205,29 +241,30 @@ svg {
       margin: 0 15px; } }
 
 .fab {
+  outline: none;
   cursor: pointer;
   visibility: visible;
   border: none;
   text-decoration: none;
+  overflow: hidden;
   z-index: 100;
   display: inline-block;
-  padding: 16px;
   right: 56px;
   width: 56px;
   height: 56px;
   border-radius: 100%;
   background-color: #75FE03;
   box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12), 0 3px 5px -1px rgba(0, 0, 0, 0.4);
-  transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1); }
+  transition: all 0.3s ease-in, box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1); }
   .fab svg {
     width: 24px;
     height: 24px;
-    fill: #212121;
     position: absolute;
     top: 50%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%); }
+            transform: translate(-50%, -50%);
+    fill: #212121; }
   .fab:hover, .fab:focus, .fab:active {
     background-color: #64DD17;
     box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.4); }
@@ -249,7 +286,6 @@ svg {
         -webkit-transform: none;
                 transform: none; }
       .fab._more {
-        display: -webkit-box;
-        display: flex; } }
+        display: inline-block; } }
 
 /*# sourceMappingURL=style.css.map */

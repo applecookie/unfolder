@@ -1,27 +1,28 @@
 .fab
+  outline: none
   cursor: pointer
   visibility: visible
   border: none
   text-decoration: none
+  overflow: hidden
   z-index: 100
   display: inline-block
-  padding: 16px
   right: 56px
   width: 56px
   height: 56px
   border-radius: 100%
   background-color: $c-primary
   box-shadow: $z-depth-6
-  transition: all .28s cubic-bezier(.4, 0, .2, 1)
+  transition: all .3s ease-in, box-shadow .28s cubic-bezier(.4, 0, .2, 1)
 
   svg
     width: 24px
     height: 24px
-    fill: #212121
     position: absolute
     top: 50%
     left: 50%
     transform: translate(-50%, -50%)
+    fill: #212121
 
   &:hover,
   &:focus,
@@ -46,4 +47,4 @@
       bottom: 25px
       transform: none
     &._more
-      display: flex
+      display: inline-block

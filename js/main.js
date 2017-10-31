@@ -9,6 +9,7 @@ $(document).ready(function() {
         autoplay: true,
         autoplayTimeout: 5000,
         autoplayHoverPause: true,
+        navClass: ['owl-prev _ripple', 'owl-next _ripple'],
         navText: [
             '<svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">\n' +
             '    <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>\n' +
@@ -17,8 +18,8 @@ $(document).ready(function() {
             '<svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">\n' +
             '    <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>\n' +
             '    <path d="M0 0h24v24H0z" fill="none"/>\n' +
-            '</svg>',
-        ],
+            '</svg>'
+        ]
     });
 
     owlCarousel.on('translate.owl.carousel', function(event) {
@@ -56,4 +57,37 @@ $(document).ready(function() {
             $window.off('scroll');
         });
     }
+
+    $(function() {
+
+
+        $('._ripple').on('click', function (event) {
+            event.preventDefault();
+
+            var $div = $('<div/>'),
+                btnOffset = $(this).offset(),
+                xPos = event.pageX - btnOffset.left,
+                yPos = event.pageY - btnOffset.top;
+
+
+
+            $div.addClass('ripple-effect');
+            var $ripple = $(".ripple-effect");
+
+            $ripple.css("height", $(this).height());
+            $ripple.css("width", $(this).height());
+            $div
+                .css({
+                    top: yPos - ($ripple.height()/2),
+                    left: xPos - ($ripple.width()/2)
+                    // background: $(this).data("ripple-color")
+                })
+                .appendTo($(this));
+
+            window.setTimeout(function(){
+                $div.remove();
+            }, 2000);
+        });
+
+    });
 });
