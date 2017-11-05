@@ -1,0 +1,81 @@
+.carousel
+  min-height 100vh
+  padding-bottom 60px
+
+  &__container
+    width 80%
+    margin auto
+    position relative
+    margin-top -165px
+
+  &__text
+    text-align center
+    font-size 18px
+    font-weight 500
+    display none
+
+    &.__active
+      display block
+
+  @media all and (max-width: 1024px)
+    background-color $c-bg-primary
+
+    &__container
+      width 100%
+      margin-top 0
+
+    &__text
+      font-size 14px
+      color rgba(255,255,255,.75)
+
+
+.owl
+  &-carousel
+    margin-bottom 34px
+  &-stage-outer
+    margin-bottom 17px
+    box-shadow 0 19px 38px rgba(0, 0, 0, 0.3), 0px 15px 12px rgba(0, 0, 0, 0.22)
+    border-radius 2px
+  &-prev, &-next
+    overflow hidden
+    position absolute
+    top 50%
+    transform translateY(-50%)
+    width 56px
+    height 56px
+    background-color rgba(0,0,0,.33)
+    border-radius 100%
+    svg
+      width 24px
+      height 24px
+      position absolute
+      top 50%
+      left 50%
+      transform translate(-50%, -50%)
+      fill #fff
+  &-prev
+    left -10%
+  &-next
+    right -10%
+  &-dots
+    text-align center
+  &-dot
+    display inline-block
+    width 14px
+    height 14px
+    background-color rgba(0,0,0,.33)
+    border-radius 100%
+    margin 7px
+    &.active
+      background-color #000
+
+  @media all and (max-width: 1024px)
+    &-nav
+      display none
+    //  justify-content center
+    //&-prev, &-next
+    //  position static
+    //  transform none
+    &-dot
+      &.active
+        background-color #fff

@@ -1,0 +1,8 @@
+{
+    "targets": [
+        {
+            "type": "git",
+            "url": "git@gitlab.com:unfolder/unfolder.gitlab.io.git"
+        }
+    ]
+}
