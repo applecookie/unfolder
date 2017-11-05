@@ -3,6 +3,10 @@
         {
             "type": "git",
             "url": "git@gitlab.com:unfolder/unfolder.gitlab.io.git"
+        },
+        {
+            "type": "git",
+            "url": "git@github.com:RemRyahirev/Unfolder-site.git"
         }
     ]
 }

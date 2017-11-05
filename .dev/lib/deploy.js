@@ -91,9 +91,12 @@ const makeDeploy = target => {
     }
 };
 
-Promise
-    .all(targets.map(makeDeploy))
-    .then(() => {
-        loge();
-        log(LOG_SUCCESS, 'Deploy completed');
-    });
+let promise = Promise.resolve(true);
+targets.forEach(target => {
+    promise = promise.then(() => makeDeploy(target));
+});
+
+promise.then(() => {
+    loge();
+    log(LOG_SUCCESS, 'Deploy completed');
+});

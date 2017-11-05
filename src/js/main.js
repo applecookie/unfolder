@@ -7,7 +7,7 @@ $(document).ready(() => {
         nav: true,
         autoHeight: true,
         autoplay: true,
-        autoplayTimeout: 5000,
+        autoplayTimeout: 7000,
         autoplayHoverPause: true,
         navClass: ['owl-prev _ripple', 'owl-next _ripple'],
         navText: [
