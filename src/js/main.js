@@ -1,5 +1,5 @@
-$(document).ready(() => {
-    const owlCarousel = $('.owl-carousel');
+$(document).ready(function () {
+    var owlCarousel = $('.owl-carousel');
     owlCarousel.owlCarousel({
         callbacks: true,
         items: 1,
@@ -22,33 +22,45 @@ $(document).ready(() => {
         ],
     });
 
-    owlCarousel.on('translate.owl.carousel', event => {
+    owlCarousel.on('translate.owl.carousel', function (event) {
         $('.carousel__text').removeClass('__active').eq(event.page.index).addClass('__active');
     });
 
 
-    $('.nets__link').on('click', function(e) {
+    $('.nets__link').on('click', function (e) {
         e.preventDefault();
-        const link = $(this).attr('href');
+        var link = $(this).attr('href');
 
-        setTimeout(() => { location.href = link; }, 500);
+        setTimeout(function () { location.href = link; }, 500);
     });
 
-    // $('.fab._share').on('click', function(e) {
-    //     e.preventDefault();
-    //
-    //
-    // });
+    var shareButton = $('.fab._share');
+    if (navigator.share) {
+        shareButton.removeAttr('data-sharer');
 
-    const $more = $('._more');
-    const $window = $(window);
+        shareButton.on('click', function (e) {
+            e.preventDefault();
+
+            navigator
+                .share({
+                    title: shareButton.data('title'),
+                    url: shareButton.data('url'),
+                });
+        });
+    } else {
+        shareButton.addClass('sharer');
+        window.Sharer.init();
+    }
+
+    var $more = $('._more');
+    var $window = $(window);
 
     if ($window.scrollTop() > 0) {
         $more.remove();
     } else {
-        $more.on('click', function() {
-            const scrollEl = $(this).attr('href');
-            const $scrollEl = $(scrollEl);
+        $more.on('click', function () {
+            var scrollEl = $(this).attr('href');
+            var $scrollEl = $(scrollEl);
 
             if ($scrollEl.length !== 0) {
                 $('html, body').animate({ scrollTop: $scrollEl.offset().top }, 500);
@@ -59,35 +71,32 @@ $(document).ready(() => {
             return false;
         });
 
-        $window.on('scroll', () => {
+        $window.on('scroll', function () {
             $more.remove();
             $window.off('scroll');
         });
     }
 
-    $('._ripple').on('click', function(event) {
-        // event.preventDefault();
-
-        const $this = $(this);
-        const $div = $('<div/>');
-        const btnOffset = $this.offset();
-        const xPos = event.pageX - btnOffset.left;
-        const yPos = event.pageY - btnOffset.top;
+    $('._ripple').on('click', function (event) {
+        var $this = $(this);
+        var $div = $('<div/>');
+        var btnOffset = $this.offset();
+        var xPos = event.pageX - btnOffset.left;
+        var yPos = event.pageY - btnOffset.top;
 
         $div.addClass('ripple-effect');
-        const $ripple = $('.ripple-effect');
 
-        const height = $this.height();
-        $ripple.css('height', height);
-        $ripple.css('width', height);
+        var height = $this.height();
+        $div.css('height', height);
+        $div.css('width', height);
         $div
             .css({
-                top: yPos - ($ripple.height() / 2),
-                left: xPos - ($ripple.width() / 2),
+                top: yPos - height / 2,
+                left: xPos - height / 2,
                 // background: $(this).data("ripple-color")
             })
             .appendTo($this);
 
-        window.setTimeout(() => $div.remove(), 2000);
+        window.setTimeout(function () { $div.remove(); }, 2000);
     });
 });

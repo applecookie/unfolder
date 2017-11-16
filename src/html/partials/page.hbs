@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+    <meta charset="UTF-8">
+    <title>{{{ title }}}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500{{#equals lang "ru"}}&subset=cyrillic{{/equals}}" rel="stylesheet">
+    <link rel="stylesheet" href="/css/vendor/owl.carousel.min.css"/>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="image_src" href="{{ slides.0.img }}"/>
+</head>
+<body>
+<div class="layout">
+    {{#> header}}{{/header}}
+    {{#> banner}}{{/banner}}
+    {{#> carousel }}{{/carousel}}
+</div>
+<script src="/js/vendor/jquery.min.js"></script>
+<script src="/js/vendor/owl.carousel.min.js"></script>
+<script src="/js/vendor/sharer.min.js"></script>
+<script src="/js/main.js"></script>
+</body>
+</html>

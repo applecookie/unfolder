@@ -2,19 +2,13 @@
     <div class="layout__container">
         <div class="carousel__container">
             <div class="owl-carousel">
-                <img src="img/slide1.png" alt="">
-                <img src="img/slide2.png" alt="">
-                <img src="img/slide3.png" alt="">
-                <img src="img/slide4.png" alt="">
-                <img src="img/slide5.png" alt="">
-                <img src="img/slide6.png" alt="">
+                {{#each slides}}
+                    <img src="{{ img }}" alt="{{ title }}">
+                {{/each}}
             </div>
-            <p class='carousel__text __active'>Интерфейс ориентирован на работу с изображениями</p>
-            <p class='carousel__text'>Встроенный просмотрщик изображений</p>
-            <p class='carousel__text'>Разные уровни зума и абстракции данных</p>
-            <p class='carousel__text'>Разные типы файлов и встроенный аудиоплеер</p>
-            <p class='carousel__text'>Настраиваемый домашний экран</p>
-            <p class='carousel__text'>Встроенный сервис публикации позволит опубликовать любую папку в 1 клик</p>
+            {{#each slides}}
+                <p class="carousel__text {{#if @first}}__active{{/if}}">{{ title }}</p>
+            {{/each}}
         </div>
     </div>
 </section>

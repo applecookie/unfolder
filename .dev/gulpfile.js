@@ -127,14 +127,14 @@ gulp.task('templates', wrapPipe('templates', (success, error) => {
         data: 'data',
     };
 
-    const hbStream = hb()
+    const hbStream = hb().on('error', error)
         .partials(`${basePath}/${dirs.partials}/**/*.{hbs,js}`).on('error', error)
         .helpers(`${basePath}/${dirs.helpers}/**/*.js`).on('error', error)
         .decorators(`${basePath}/${dirs.decorators}/**/*.js`).on('error', error)
         .data(`${basePath}/${dirs.data}/**/*.{js,json}`).on('error', error);
 
     return gulp
-        .src(`${basePath}/*.{html,hbs}`)
+        .src(`${basePath}/**/*.html`)
         .pipe(hbStream)
         .pipe(htmlmin({
             collapseWhitespace: true,

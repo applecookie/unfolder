@@ -1,7 +1,7 @@
 {
   "name": "unfolder",
   "version": "1.0.0",
-  "description": "",
+  "description": "Unfolder landing static site generator",
   "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -13,11 +13,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@bitbucket.org:remtech/siteconveyer.git"
+    "url": "https://github.com/applecookie/unfolder "
   },
-  "author": "RemRyahirev <remryahirev@gmail.com>",
+  "authors": [
+    "RemRyahirev <remryahirev@gmail.com>",
+    "Applecookie <orccookies@gmail.com>"
+  ],
   "license": "MIT",
-  "homepage": "https://bitbucket.org/remtech/siteconveyer#readme",
+  "homepage": "https://github.com/applecookie/unfolder#readme",
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.0.1",

@@ -1,0 +1,34 @@
+{
+    "lang": "en",
+    "anotherLang": "ru",
+    "title": "Unfolder &mdash; file manager",
+    "subtitle": "file manager",
+    "comingSoon": "Soon on Windows and macOS",
+    "followDevelopment": "Follow the development in social networks",
+    "slides": [
+        {
+            "img": "/img/slide1.png",
+            "title": "Image-oriented interface"
+        },
+        {
+            "img": "/img/slide2.png",
+            "title": "Image viewer"
+        },
+        {
+            "img": "/img/slide3.png",
+            "title": "Zoom and data abstraction levels"
+        },
+        {
+            "img": "/img/slide4.png",
+            "title": "Different file types and media player"
+        },
+        {
+            "img": "/img/slide5.png",
+            "title": "Customizable home screen"
+        },
+        {
+            "img": "/img/slide6.png",
+            "title": "Content publishing service integration"
+        }
+    ]
+}
